@@ -1,8 +1,6 @@
 // index.js
 // where your node app starts
 
-/*Before starting next project - try using the service. */
-
 // init project
 var express = require('express');
 var app = express();
@@ -35,7 +33,6 @@ app.get("/api/:unix_time", function (req, res) {//Interpret what is after /api/ 
     let date;//If date.valueOf() is NaN, the date is invalid.
     if(regexNumbers.test(time))
     {
-	console.log("Match");
 	unixTime = parseInt(time,10);
 	date = new Date(unixTime);
     }
@@ -51,8 +48,6 @@ app.get("/api/:unix_time", function (req, res) {//Interpret what is after /api/ 
 	unixTime = date.getTime();
     }
     const utcTime = date.toUTCString();
-   // const temp = timeStamp.getTime();//only correct for some input.
-    //  timeStamp = new Date();
     //Convert to Date, use getTime();
     if(isNaN(date.valueOf()))
     {
@@ -65,11 +60,6 @@ app.get("/api/:unix_time", function (req, res) {//Interpret what is after /api/ 
 	utc: utcTime
     });
     }
-    console.log(time);
-    console.log(date);
-    console.log(unixTime);
-   // console.log(timeStamp.getTime());
-    console.log("######");
 });
     
 
